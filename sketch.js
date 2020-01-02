@@ -27,8 +27,8 @@ function setup() {
   cannon = createVector(1,1);
   cannonAngle = PI / 2;
   cannonAngleMax = PI;
-  playWidth = displayWidth;
-  playHeight = displayHeight-100;
+  playWidth = 360;
+  playHeight = 640;
   playWidthHalf =  playWidth/2;
   playRoof = -playHeight+100;
   // playHeight = playHeight-100;
