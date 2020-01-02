@@ -27,8 +27,8 @@ function setup() {
   cannon = createVector(1,1);
   cannonAngle = PI / 2;
   cannonAngleMax = PI;
-  playWidth = 400;
-  playHeight = 800;
+  playWidth = 360;
+  playHeight = 640;
   playWidthHalf =  playWidth/2;
   playRoof = -playHeight+100;
   // playHeight = playHeight-100;
@@ -125,7 +125,21 @@ function drawCannon(){
   text( highscore.toString(),0,-250);
 }
 
-
+function touchStarted(){
+  if(cannonActive==1  || yeetmode==1){
+    append(balloons, new Balloon(cannonAngle));
+    cannonActive=0;
+  } else {
+    balloons = [];
+    backing=0;
+    score=0;
+    cannonActive=1;
+    gamelive=1;
+    yeetmode=0;
+    this.LorryIsBorn();
+    siren.play();
+  }
+}
 
  function keyPressed() {
     if (keyCode == UP_ARROW) {
