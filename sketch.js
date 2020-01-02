@@ -28,7 +28,7 @@ function setup() {
   cannonAngle = PI / 2;
   cannonAngleMax = PI;
   playWidth = displayWidth;
-  playHeight = displayHeight;
+  playHeight = displayHeight-100;
   playWidthHalf =  playWidth/2;
   playRoof = -playHeight+100;
   // playHeight = playHeight-100;
