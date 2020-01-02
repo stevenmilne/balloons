@@ -129,7 +129,8 @@ function touchStarted(){
   if(cannonActive==1  || yeetmode==1){
     append(balloons, new Balloon(cannonAngle));
     cannonActive=0;
-  } else {
+  } ;
+  if( gamelive!=1 ) {
     balloons = [];
     backing=0;
     score=0;
