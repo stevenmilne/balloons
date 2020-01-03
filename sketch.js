@@ -15,13 +15,13 @@ let playHeight = 0;
 let gameMode = 'norm';
 let age = 'past';
 
-let ding, siren, ooft;
+// let ding, siren, ooft;
 
 function setup() {
-
-    ding = loadSound('Pling.mp3');
-    siren = loadSound('Siren.mp3');
-    ooft = loadSound('Ooft.mp3');
+    //
+    // ding = loadSound('Pling.mp3');
+    // siren = loadSound('Siren.mp3');
+    // ooft = loadSound('Ooft.mp3');
 // ding.preload();
   bg = loadImage("boys3.png");
   cannon = createVector(1,1);
@@ -138,7 +138,7 @@ function touchStarted(){
     gamelive=1;
     yeetmode=0;
     this.LorryIsBorn();
-    siren.play();
+    // siren.play();
   }
 }
 
@@ -151,7 +151,7 @@ function touchStarted(){
       gamelive=1;
       yeetmode=0;
       this.LorryIsBorn();
-      siren.play();
+      // siren.play();
   } else {
     if(cannonActive==1 || yeetmode==1){
       // balloons.add(new Balloon(cannonAngle));

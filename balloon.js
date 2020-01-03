@@ -1,13 +1,12 @@
 class Balloon {
 
   constructor(cannonAngle) {
-     this.speed = 16;
+    this.speed = 16;
     this.drag = 0.985;
     this.life = 3;
     this.inmotion =1;
     this.direction = cannonAngle;
     this.immunity = 0;
-    // this.velocity =  Vector.fromAngle(cannonAngle).setMag(speed);
     this.velocity =   p5.Vector.fromAngle(cannonAngle, 30).setMag(this.speed);
     this.position = createVector(0,0);
     this.size = 25;
@@ -20,21 +19,15 @@ class Balloon {
       this.g =int(random(50,200));
       this.b =int(random(50,200));
     }
-
   }
 
-
-
-   update( balloons){
-     if(this.immunity>0)this.immunity-=1;
+  update( balloons){
+    if(this.immunity>0)this.immunity-=1;
     this.position = this.position.sub(this.velocity);
     this.velocity.mult(this.drag);
-
     this.walls();
-
     // if still moving, check collisions with other balloons
     if(balloons.length>1 && this.velocity.mag()>0){
-      // this.bounce();
       this.collide();
     }
 
@@ -60,7 +53,7 @@ class Balloon {
     if(this.position.y>13-(this.size/2) ){
       backing = 220;
       gamelive=0;
-      ooft.play();
+      // ooft.play();
     }
   }
 
@@ -109,7 +102,7 @@ class Balloon {
         if (  this.immunity>0   ){
             console.log(" IMMUNE");
         } else {
-            ding.play();
+            // ding.play();
             balloons[i].life -=1;
             this.immunity=10;
           // console.log("SET XY " + ax + " " + ay);
@@ -120,52 +113,6 @@ class Balloon {
 
 
   }
-
-  //
-  //  bounce(){
-  //    // this finds other balloons and bounces off them
-  //   for (let i = balloons.length-1; i > -1; i--) {
-  //     let other = balloons[i];
-  //     let d = dist(this.position.x, this.position.y, other.position.x, other.position.y);
-  //     let rads = (this.size+other.size)/2;
-  //
-  //     // if they are overlapping at all
-  //     if (other != this && d < rads) {
-  //       // this.velocity = bounce;
-  //       // push();
-  //       // move to the centre of the current balloon for easier (??) sums
-  //       // translate(this.position.x, this.position.y);
-  //
-  //       // now rotate so that we are pointing directly at the target?
-  //
-  //       // rotate(this.position.angleBetween(other.position));
-  //
-  //       //
-  //       // let bounce = other.position.copy();
-  //       // bounce.sub(this.position);
-  //       // bounce.setMag(this.velocity.mag()); //keep the same speed as previously
-  //
-  //       let angleBetween = other.position.angleBetween(this.velocity);
-  //
-  //       // this is where we need to do the maths properly
-  //       // we have a projectile, a barrier, and need to calculate the rebound Vector
-  //       // let angleBetween = this.position.angleBetween(other.position);
-  //       let rebound = p5.Vector.fromAngle( PI-angleBetween ,this.velocity.mag());
-  //
-  //
-  //       this.velocity = rebound;
-  //
-  //     //  this.velocity.add(bounce);// = bounce;
-  //       other.life -=1;
-  //       // console.log(this.velocity.mag());
-  //
-  //       // let angle = this.position.angleBetween(other.position);
-  //       // console.log(angle);
-  //       // pop();
-  //     }
-  //   }
-  // }
-
 
    block(){
     for (let i = balloons.length-1; i > -1; i--) {
